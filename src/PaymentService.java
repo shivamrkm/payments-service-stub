@@ -1,30 +1,11 @@
-package com.minionops.payments;
-
-import java.util.Map;
-
-public class PaymentService {
-
-    private Map<String, String> config;
-
-    // Constructor intentionally does NOT initialize config
-    public PaymentService() {
-        // BUG: config is never initialized — will cause NullPointerException
-    }
-
-    public String processPayment(String userId, double amount) {
-        // LINE 123 — NullPointerException thrown here when config is null
-        String currency = config.get("default_currency");  // line 123
-        String gateway = config.get("payment_gateway");
-
-        if (currency == null || gateway == null) {
-            throw new IllegalStateException("Missing payment config");
-        }
-
-        return String.format("Payment of %.2f %s processed for user %s via %s",
-                amount, currency, userId, gateway);
-    }
-
-    public void setConfig(Map<String, String> config) {
-        this.config = config;
-    }
+// Code generation failed: 401 API keys are not supported by this API. Expected OAuth2 access token or other authentication credentials that assert a principal. See https://cloud.google.com/docs/authentication [reason: "CREDENTIALS_MISSING"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
 }
+metadata {
+  key: "method"
+  value: "google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent"
+}
+]
